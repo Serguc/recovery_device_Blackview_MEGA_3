@@ -1,0 +1,17 @@
+# mount point       fstype    device                                                                flags
+/system             ext4      system                                                                display="System";logical;slotselect
+/vendor             ext4      vendor                                                                display="Vendor";logical;slotselect
+/product            ext4      product                                                               display="Product";logical;slotselect
+/system_ext         ext4      system_ext                                                            display="System EXT";logical;slotselect
+/vendor_dlkm        ext4      vendor_dlkm                                                           display="Vendor DLKM";logical;slotselect
+/odm_dlkm           ext4      odm_dlkm                                                              display="ODM DLKM";logical;slotselect
+
+# Стандартные разделы
+/metadata           ext4      /dev/block/by-name/metadata                                           display="Metadata"
+/data               f2fs      /dev/block/by-name/userdata                                           flags=display="Data";backup=1;wipeingui
+/cache              ext4      /dev/block/by-name/cache                                              display="Cache"
+/mnt/vendor/persist ext4      /dev/block/by-name/persist                                            display="Persist"
+
+# Съемные носители
+/external_sd        auto      /dev/block/mmcblk0p1         /dev/block/mmcblk0                       flags=display="MicroSD";storage;wipeingui;removable
+/usb_otg            auto      /dev/block/sdd1              /dev/block/sdd                            flags=display="USB-OTG";storage;wipeingui;removable
