@@ -104,5 +104,5 @@ PRODUCT_COPY_FILES += \
     device/Blackview/MEGA_3/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789
 
 # OEM otacerts
-PRODUCT_EXTRA_RECOVERY_KEYS += \
+#PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/releasekey
