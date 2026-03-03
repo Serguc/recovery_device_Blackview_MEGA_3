@@ -1,5 +1,6 @@
 import /tee.rc
 import /trustonic.rc
+import /mtk-plpath-utils.rc
 
 on init
     setprop sys.usb.configfs 1
@@ -19,9 +20,8 @@ on post-fs
 on boot
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
     start mtk.plpath.utils.link
-
-on boot
-    start mtk.plpath.utils.link
+    start health-hal-2-1
+    setprop sys.usb.config adb
 
 on property:persist.vendor.mtk.pl_lnk=1
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
