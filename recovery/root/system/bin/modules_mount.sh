@@ -1,4 +1,4 @@
-#!/sbin/sh
+#!/system/bin/sh
 
 # Если modules.img есть только в ksu
 if [ -f "/data/adb/ksu/modules.img" ] && [ ! -f "/data/adb/ap/modules.img" ]; then
