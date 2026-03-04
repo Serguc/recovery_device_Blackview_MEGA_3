@@ -139,15 +139,12 @@ BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE :=
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
-# Включаем сборку рамдиска рекавери прямо в vendor_boot
+# vendor_boot
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 
 # Указываем, что у нас нет отдельного раздела recovery
 BOARD_USES_RECOVERY_AS_BOOT := false
-
-# Для корректной упаковки OrangeFox
-TARGET_COPY_OUT_VENDOR_RAMDISK := vendor_boot
 
 # Crypto
 TW_INCLUDE_CRYPTO := false
