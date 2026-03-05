@@ -137,13 +137,14 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE :=
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # vendor_boot
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 
-# Указываем, что у нас нет отдельного раздела recovery
+# System as root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_RECOVERY_AS_BOOT := false
 
 # Crypto
