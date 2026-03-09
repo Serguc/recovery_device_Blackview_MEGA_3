@@ -225,4 +225,4 @@ TWRP_INCLUDE_LOGCAT := true
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Maintainer specific settings
-#TW_DEVICE_VERSION := Serguc
+TW_DEVICE_VERSION := Serguc
