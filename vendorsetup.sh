@@ -46,7 +46,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export TARGET_DEVICE_ALT="MEGA_3,stone"
     export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
-
+	export FOX_VENDOR_BOOT_RECOVERY_FULL_REFLASH=1
+    export FOX_VENDOR_BOOT_RECOVERY=1
     export FOX_DELETE_MAGISK_ADDON=1
     export FOX_DELETE_AROMAFM=1
     export FOX_ENABLE_APP_MANAGER=1
