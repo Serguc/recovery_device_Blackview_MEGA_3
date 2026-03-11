@@ -8,7 +8,7 @@
 /vbmeta_vendor            emmc      /dev/block/by-name/vbmeta_vendor                 flags=display="vbmeta_vendor";slotselect;backup;flashimg
 /dtbo                     emmc      /dev/block/by-name/dtbo                          flags=display=dtbo;slotselect;backup
 /metadata                 ext4      /dev/block/by-name/metadata                      flags=display=metadata;backup
-/data                     f2fs      /dev/block/by-name/userdata                      flags=display=data;backup;encryptable=/metadata/vold/metadata_encryption,fsverity
+/data                     f2fs      /dev/block/by-name/userdata                      flags=display=data;backup;fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption
 /misc                     emmc      /dev/block/by-name/misc                          flags=display=misc;backup
 /nvcfg                    ext4      /dev/block/by-name/nvcfg                         flags=display="nvcfg";backup
 /persist                  ext4      /dev/block/by-name/persist                       flags=display=persist;backup1
@@ -55,14 +55,15 @@
 /boot_para                emmc      /dev/block/by-name/boot_para 
 /odmdtbo                  emmc      /dev/block/by-name/odmdtbo 
 /otp                      emmc      /dev/block/by-name/otp 
+
 # Removable storage
 /external_sd              auto      /dev/block/mmcblk0p1   /dev/block/mmcblk0        flags=display="Micro SD";storage;wipeingui;removable
 /usb-otg                  auto      /dev/block/sdd1   /dev/block/sdd                 flags=display="USB OTG";storage;wipeingui;removable
  
 # Flashable logical partitions
-/system_image             emmc      /dev/block/bootdevice/by-name/system             flags=display="system_image";backup;flashimg;wipeingui
-/system_ext_image         emmc      /dev/block/bootdevice/by-name/system_ext         flags=display="system_ext_image";backup;flashimg;wipeingui
-/vendor_image             emmc      /dev/block/bootdevice/by-name/vendor             flags=display="vendor_image";backup;flashimg;wipeingui
-/product_image            emmc      /dev/block/bootdevice/by-name/product            flags=display="product_image";backup;flashimg;wipeingui
-/vendor_dlkm_image        emmc      /dev/block/bootdevice/by-name/vendor_dlkm_a      flags=display="vendor_dlkm_image";backup;flashimg;wipeingui
-/odm_dlkm_image           emmc      /dev/block/bootdevice/by-name/odm_dlkm_a         flags=display="odm_dlkm_image";backup;flashimg;wipeingui
+/system_image             emmc      /dev/block/mapper/system                         flags=display="system_image";backup;flashimg;wipeingui
+/system_ext_image         emmc      /dev/block/mapper/system_ext                     flags=display="system_ext_image";backup;flashimg;wipeingui
+/vendor_image             emmc      /dev/block/mapper/vendor                         flags=display="vendor_image";backup;flashimg;wipeingui
+/product_image            emmc      /dev/block/mapper/product                        flags=display="product_image";backup;flashimg;wipeingui
+/vendor_dlkm_image        emmc      /dev/block/mappervendor_dlkm                     flags=display="vendor_dlkm_image";backup;flashimg;wipeingui
+/odm_dlkm_image           emmc      /dev/block/mapper/odm_dlkm                       flags=display="odm_dlkm_image";backup;flashimg;wipeingui
