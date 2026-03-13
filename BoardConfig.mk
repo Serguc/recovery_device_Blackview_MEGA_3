@@ -68,7 +68,8 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
-
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_BASE := 0x3fff8000
 BOARD_BOOT_HEADER_VERSION := 4
@@ -151,7 +152,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 # vendor_boot
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-BOARD_VENDOR_RAMDISK_DIRS += system avb
+BOARD_VENDOR_RAMDISK_DIRS += system avb linkerconfig
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
