@@ -34,30 +34,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch.mk)
 
 # A/B
 AB_OTA_PARTITIONS += \
-    preloader \
     boot \
-    dtbo \
+    product \
     system \
     system_ext \
-    product \
     vendor \
-    vendor_dlkm \
-    odm \
-    odm_dlkm \
     vendor_boot \
-    vbmeta \
-    vbmeta_system \
-    vbmeta_vendor \
-    md1img \
-    spmfw \
-    pi_img \
-    dpm \
-    scp \
-    sspm \
-    mcupm \
-    gz \
-    tee \
-    lk
+    vbmeta
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
