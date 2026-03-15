@@ -170,6 +170,15 @@
 /dev/kmsg                 0660   root       system
 /dev/rtc0                 0660   system     system
 
+# USB и MTP
+/dev/mtp_usb              0660   root       mtp
+/dev/usb_accessory        0660   root       usb
+/dev/usb-ffs/adb/* 0660   shell      shell
+
+# MediaTek
+/dev/block/mmcblk0* 0660   root       system
+/dev/block/by-name/msdc0  0660   root       system
+
 # Change DMA_HEAP deice permission
 #     refs: /system/core/rootdir/uevent.rc
 #           /dev/dma_heap/system      0444   system     system
