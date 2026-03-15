@@ -205,9 +205,12 @@ TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_LPDUMP := true
 TW_INCLUDE_LPTOOLS := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TARGET_USE_CONFIGFS := true
 TW_BACKUP_EXCLUSIONS := /data/fonts/files
 TW_INCLUDE_RESETPROP := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+CUSTOM_RECOVERY_USB_ID_VENDOR := 0x18D1
+CUSTOM_RECOVERY_USB_ID_PRODUCT := 0xD001
 #Perhaps this value is not correct
 TW_CUSTOM_CPU_TEMP_PATH := /sys/class/thermal/thermal_zone25/temp
 #TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
