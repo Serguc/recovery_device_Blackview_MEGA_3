@@ -3,6 +3,10 @@ import /trustonic.rc
 import /mtk-plpath-utils.rc
 
 on init
+    mkdir /mnt/vendor/nvcfg 0771 system system
+    mkdir /mnt/vendor/nvdata 0771 system system
+    mkdir /zlintek 0777 system system
+    setprop sys.usb.controller musb-hdrc
     setprop sys.usb.configfs 1
     setprop vendor.all.modules.ready 1
 
@@ -16,9 +20,6 @@ on fs
 
 on post-fs
     start boot-hal-1-2
-    mkdir /mnt/vendor/nvcfg 0771 system system
-    mkdir /mnt/vendor/nvdata 0771 system system
-    mkdir /zlintek 0777 system system
 
 on boot
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
