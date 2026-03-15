@@ -161,9 +161,14 @@
 
 # Mali node
 /dev/mali0                0666   system     graphics
+/dev/graphics/* 0660   system     graphics
 
 # Change ION driver permission
 /dev/ion                  0666   system     graphics
+
+# Зарядка и датчики
+/dev/kmsg                 0660   root       system
+/dev/rtc0                 0660   system     system
 
 # Change DMA_HEAP deice permission
 #     refs: /system/core/rootdir/uevent.rc
