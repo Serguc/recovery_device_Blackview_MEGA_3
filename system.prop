@@ -1,13 +1,3 @@
-ro.product.model=MEGA 3
-ro.product.brand=Blackview
-ro.product.device=MEGA_3
-ro.sf.lcd_density=320
-ro.surface_flinger.has_wide_color=true
-ro.surface_flinger.has_HDR_display=true
-ro.adb.secure=0
-ro.debuggable=1
-persist.sys.usb.config=mtp,adb
-
 # Fstab
 ro.postinstall.fstab.prefix=/system
 
@@ -23,3 +13,6 @@ ro.hardware.gatekeeper=trustonic
 # TEE
 ro.vendor.mtk_tee_gp_support=1
 ro.vendor.mtk_trustonic_tee_support=1
+
+# other
+ro.boot.selinux=permissive
