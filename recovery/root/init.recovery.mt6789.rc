@@ -63,8 +63,14 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     disabled
     seclabel u:r:recovery:s0
 
-on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
-    install_keyring
+service keystore2 /system/bin/keystore2 /data/misc/keystore
+    class early_hal
+    user keystore
+    group keystore readproc log
+    seclabel u:r:recovery:s0
+
+on post-fs-data
+    mkdir /data/misc/keystore 0700 keystore keystore
 
 service keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
     user root
