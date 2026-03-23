@@ -20,7 +20,7 @@ DEVICE_PATH := device/Blackview/MEGA_3
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 35
+PRODUCT_TARGET_VNDK_VERSION := 31
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
@@ -31,22 +31,6 @@ ENABLE_VIRTUAL_AB := true
 #TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch.mk)
-
-# A/B
-AB_OTA_PARTITIONS += \
-    boot \
-    product \
-    system \
-    system_ext \
-    vendor \
-    vendor_boot \
-    vbmeta
-
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_system=true \
-    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
-    FILESYSTEM_TYPE_system=ext4 \
-    POSTINSTALL_OPTIONAL_system=true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -67,15 +51,52 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+# Drm
 PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh
+    android.hardware.drm@1.4
+
+# Keymint
+PRODUCT_PACKAGES += \
+    android.hardware.security.keymint \
+    android.hardware.security.secureclock \
+    android.hardware.security.sharedsecret
+
+# Keystore2
+PRODUCT_PACKAGES += \
+    android.system.keystore2
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1
+
+# A/B
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    product \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor \
+    vendor \
+    vendor_boot
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/mtk_plpath_utils \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
 
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
+
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    cppreopts.sh
 
 # Mtk plpath utils
 PRODUCT_PACKAGES += \
@@ -88,12 +109,20 @@ PRODUCT_PACKAGES_DEBUG += \
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libpuresoftkeymasterdevice
-
+    libpuresoftkeymasterdevice \
+    android.system.keystore2-V1-ndk_platform.so \
+    libkeystore2_crypto.so \
+    libbinder_ndk.so \
+    libcppbor_external.so
+    
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.system.keystore2-V1-ndk_platform.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeystore2_crypto.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libbinder_ndk.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so
 
 # snapuserd
 PRODUCT_PACKAGES += snapuserd
