@@ -64,7 +64,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_PREBUILT_DTB := device/Blackview/MEGA_3/prebuilt/dtb
 TARGET_PREBUILT_KERNEL := device/Blackview/MEGA_3/prebuilt/kernel
-
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_VENDOR_BASE := 0x3fff8000
