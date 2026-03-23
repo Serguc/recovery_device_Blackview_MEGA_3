@@ -14,6 +14,8 @@ on fs
     mkdir /mnt/vendor/persist 0771 system system
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
     restorecon_recursive /mnt/vendor/persist
+    wait /dev/block/platform/soc/11270000.ufshci
+    symlink /dev/block/platform/soc/11270000.ufshci /dev/block/bootdevice
 
     install_keyring
     symlink /dev/block/platform/soc/11270000.ufshci /dev/block/bootdevice
@@ -79,6 +81,10 @@ service mobicore /vendor/bin/hw/mcDriverDaemon
     disabled
     seclabel u:r:recovery:s0
 
+on post-fs
+    display_boot_logo
+    start mobicore
+
 service keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
     user root
     group root drmrpc
@@ -124,6 +130,8 @@ on property:twrp.all.users.decrypted=true
 
 on boot
     start health-hal-2-1
+    setprop sys.usb.controller 11201000.usb
+    setprop sys.usb.configfs 1
     setprop sys.usb.config adb
 
 service modules_mount /system/bin/modules_mount.sh
