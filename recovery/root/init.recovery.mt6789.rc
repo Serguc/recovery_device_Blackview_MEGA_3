@@ -72,6 +72,13 @@ service keystore2 /system/bin/keystore2 /data/misc/keystore
 on post-fs-data
     mkdir /data/misc/keystore 0700 keystore keystore
 
+service mobicore /vendor/bin/hw/mcDriverDaemon
+    class core
+    user system
+    group system
+    disabled
+    seclabel u:r:recovery:s0
+
 service keymint-trustonic /vendor/bin/hw/android.hardware.security.keymint-service.trustonic
     user root
     group root drmrpc
