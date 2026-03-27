@@ -161,6 +161,7 @@ TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_PREBUILT_MODULES := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 BOARD_VENDOR_RAMDISK_DIRS += system avb linkerconfig
+TW_LOAD_VENDOR_MODULES := "panel-honor-wqxganl-dsi-vdo-90hz-cphy.ko hxchipset_hx83122.ko mtk_tpd.ko"
 
 # Crypto
 #TW_INCLUDE_CRYPTO := true
@@ -180,12 +181,18 @@ VENDOR_SECURITY_PATCH := 2025-08-05
 
 # Resolution
 TW_THEME := portrait_hdpi
-DEVICE_RESOLUTION := 1600х2560
+TW_INPUT_BLACKLIST := "hbtp_vm"
+DEVICE_RESOLUTION := 1600x2560
 TARGET_SCREEN_WIDTH := 1600
 TARGET_SCREEN_HEIGHT := 2560
+TW_ROTATION := 0
+TW_FRAMERATE := 90
 #RECOVERY_TOUCHSCREEN_FLIP_X := true
 #RECOVERY_TOUCHSCREEN_FLIP_Y := true
-TW_INPUT_X_AS_Y := true
+RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
+
+# Input & Touch
+#TW_INPUT_X_AS_Y := true
 TW_SUPPORT_INPUT_1_2 := true
 
 # TWRP Configuration
@@ -198,9 +205,6 @@ TW_HAS_MTP := true
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 150
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_ROTATION := 0
-TW_FRAMERATE := 60
 TW_EXCLUDE_APEX := true
 TW_EXTRA_LANGUAGES := true
 TW_DEFAULT_LANGUAGE := en
@@ -216,7 +220,8 @@ TW_EXCLUDE_DEFAULT_USB_INIT := false
 TARGET_USE_CONFIGFS := true
 TW_BACKUP_EXCLUSIONS := /data/fonts/files
 TW_INCLUDE_RESETPROP := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.usb0/lun.%d/file"
+TW_MTP_DEVICE_PATH := "/dev/mtp_usb"
 CUSTOM_RECOVERY_USB_ID_VENDOR := 0x18D1
 CUSTOM_RECOVERY_USB_ID_PRODUCT := 0xD001
 #Perhaps this value is not correct
