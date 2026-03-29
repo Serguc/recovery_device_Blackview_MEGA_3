@@ -12,7 +12,7 @@ Shipped Android Version | Doke OS 4.1 (Android 15)
 Storage | 256 GB
 Battery | Li-Po 8800 mAh, non-removable
 Display | 12.1-inch,1600х2560 FHD+ 2.4K Resolution; Dynamic 120Hz Refresh Rate
-Camera  | 50.1 MP (Samsung® ISOCELL GW3) and 13 MP (Samsung® ISOCELL 3L6)
+Camera  | Main:50 MP Sony IMX362;Front:8.0MP Samsung S5K4H7;Sub:13.0MP GalaxyCore GC08A8
 Demensions | 278.5x180.5x7.4 mm
 Weight  | 555 g
 
