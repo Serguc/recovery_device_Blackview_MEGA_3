@@ -23,6 +23,11 @@ DEVICE_PATH := device/Blackview/MEGA_3
 ALLOW_MISSING_DEPENDENCIES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
+# Отключаем строгую проверку systemserverclasspath и bootclasspath для минимального манифеста
+BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
+
 # Build Hack
 BUILD_BROKEN_DUP_RULES := true
 
