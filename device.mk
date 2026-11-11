@@ -13,6 +13,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 
 # Configure compression
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
+$(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+$(call inherit-product-if-exists, packages/modules/common/build/allowed_deps.txt)
+
 
 DEVICE_PATH := device/Blackview/MEGA_3
 
