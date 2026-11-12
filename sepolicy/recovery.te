@@ -1,0 +1,17 @@
+allow recovery self:capability { setuid setgid };
+
+# который Google разрешает для кастомных рекавери
+#userdebug_or_eng(`
+   # allow recovery media_rw_data_file:dir create_dir_perms;
+   # allow recovery media_rw_data_file:file create_file_perms;
+#')
+
+# ФИКС 2: MicroSD (vfat) — компилятор на нее не ругался, оставляем в безопасном режиме
+#allow recovery vfat:dir create_dir_perms;
+#allow recovery vfat:file create_file_perms;
+
+# ФИКС 3: Связь с сервисами.
+# Убираем строчку (allow recovery hal_health_service:service_manager find;),
+# так как наш новый файл — это HIDL библиотека (@2.0-impl-default.so),
+# и общаться она будет через hwservicemanager, а не через AIDL!
+#allow recovery servicemanager:binder { call transfer };
