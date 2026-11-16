@@ -43,7 +43,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
 
  	#OFR build settings & info
-	export TARGET_DEVICE_ALT="MEGA_3,stone"
+	export TARGET_DEVICE_ALT="MEGA_3"
     export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
 	export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 
