@@ -30,6 +30,7 @@ DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 
 # Build Hack
 BUILD_BROKEN_DUP_RULES := true
+SKIP_ABI_CHECKS := true
 
 # Architecture
 TARGET_ARCH := arm64
