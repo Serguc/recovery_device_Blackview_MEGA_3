@@ -16,16 +16,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 $(call inherit-product-if-exists, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product-if-exists, packages/modules/common/build/allowed_deps.txt)
 
-
 DEVICE_PATH := device/Blackview/MEGA_3
 
 # Dynamic
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 34
-PRODUCT_FIRST_API_LEVEL := 34
-PRODUCT_SHIPPING_API_LEVEL := 34
+PRODUCT_TARGET_VNDK_VERSION := 35
+PRODUCT_FIRST_API_LEVEL := 35
+PRODUCT_SHIPPING_API_LEVEL := 35
 
 # Virtual_ab_ota
 AB_OTA_UPDATER := true
@@ -52,21 +51,21 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
 
 # Drm
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.drm@1.4
 
 # Keymint
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.security.keymint \
     android.hardware.security.secureclock \
     android.hardware.security.sharedsecret
 
 # Keystore2
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.system.keystore2
 
 # Keymaster
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1
 
 # A/B
@@ -89,12 +88,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_system=true
 
 # Update engine
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh
 
@@ -109,20 +108,20 @@ PRODUCT_PACKAGES_DEBUG += \
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
-    libpuresoftkeymasterdevice \
-    android.system.keystore2-V1-ndk_platform.so \
-    libkeystore2_crypto.so \
-    libbinder_ndk.so \
-    libcppbor_external.so
+    #ibpuresoftkeymasterdevice \
+    #android.system.keystore2-V1-ndk_platform.so \
+    #libkeystore2_crypto.so \
+    #libbinder_ndk.so \
+    #libcppbor_external.so
     
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.system.keystore2-V1-ndk_platform.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeystore2_crypto.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libbinder_ndk.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so
+    #$(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+    #$(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V1-ndk_platform.so \
+    #$(TARGET_OUT_SHARED_LIBRARIES)/android.system.keystore2-V1-ndk_platform.so \
+    #$(TARGET_OUT_SHARED_LIBRARIES)/libkeystore2_crypto.so \
+    #$(TARGET_OUT_SHARED_LIBRARIES)/libbinder_ndk.so \
+    #$(TARGET_OUT_SHARED_LIBRARIES)/libcppbor_external.so
 
 # snapuserd
 PRODUCT_PACKAGES += snapuserd
