@@ -31,8 +31,6 @@ PRODUCT_SHIPPING_API_LEVEL := 34
 AB_OTA_UPDATER := true
 ENABLE_VIRTUAL_AB := true
 #TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch.mk)
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
