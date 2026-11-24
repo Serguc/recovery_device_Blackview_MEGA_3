@@ -1,2 +1,0 @@
-attribute hal_hwcrypto_server;
-attribute hal_hwcrypto_client;
