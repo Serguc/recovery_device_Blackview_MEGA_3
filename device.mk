@@ -37,7 +37,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
 
 # Kernel
-PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 PRODUCT_ENABLE_UFFD_GC := true
 
 # A/B
@@ -86,7 +85,6 @@ PRODUCT_PACKAGES += \
 
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
-     device/Blackview/MEGA_3/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc \
      device/Blackview/MEGA_3/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789
 
 # OEM otacerts
