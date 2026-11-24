@@ -26,18 +26,26 @@ AB_OTA_UPDATER := true
 ENABLE_VIRTUAL_AB := true
 #TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 
+# HAL для работы со слотами A/B
+PRODUCT_PACKAGES += \
+    android.hardware.boot-service.recovery
+
+# Health Hal
+#PRODUCT_PACKAGES += \
+     android.hardware.health@2.1-impl \
+     android.hardware.health@2.1-service
+PRODUCT_PACKAGES += \
+    android.hardware.health-service.twrp
+
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
-    
-# Health Hal
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-service
 
-# Kernel
-PRODUCT_ENABLE_UFFD_GC := true
+# create pl dev
+PRODUCT_PACKAGES += \
+    create_pl_dev \
+    create_pl_dev.recovery
 
 # A/B
 AB_OTA_PARTITIONS += \
@@ -85,8 +93,9 @@ PRODUCT_PACKAGES += \
 
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
-     device/Blackview/MEGA_3/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789
-
+     device/Blackview/MEGA_3/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789 \
+     device/Blackview/MEGA_3/task_profiles.json:$(TARGET_COPY_OUT_SYSTEM)/etc/task_profiles.json
+     
 # OEM otacerts
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/releasekey
