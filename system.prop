@@ -1,8 +1,12 @@
+# Dynamic Partitions
+ro.boot.dynamic_partitions=true
+
 # Fstab
 ro.postinstall.fstab.prefix=/system
 
-# USB MTP
-ro.sys.usb.storage.type=mtp
-
-# other
-ro.boot.selinux=permissive
+# USB MTP & Early ADB Debug
+ro.sys.usb.storage.type=mtp_adb
+ro.debuggable=1
+ro.adb.secure=0
+ro.secure=0
+persist.sys.usb.config=adb
