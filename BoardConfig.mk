@@ -67,6 +67,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 
 TARGET_PREBUILT_DTB := device/Blackview/MEGA_3/prebuilt/dtb
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_VENDOR_BASE := 0x3fff8000
 BOARD_BOOT_HEADER_VERSION := 4
@@ -159,6 +160,23 @@ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
+# RECOVERY / VENDOR_BOOT CONFIG
+AB_OTA_UPDATER := true
+
+# vendor_boot
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+#BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
+
+# Эти параметры важны для корректной сборки хедера v4
+BOARD_USES_RECOVERY_AS_BOOT := false
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
+
+# Особенности управления
+BOARD_HAS_RECOVERY_WIPE := true
+
+# Смещение ключей (стандарт для новых систем)
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+
 # vendor_boot modulesl
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_PREBUILT_MODULES := true
@@ -166,7 +184,7 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TW_LOAD_VENDOR_MODULES := "panel-honor-wqxganl-dsi-vdo-90hz-cphy.ko hxchipset_hx83122.ko mtk_tpd.ko"
 
 # Crypto
-#TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO := false
 #TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_METADATA_PARTITION := true
 #TW_INCLUDE_FBE_METADATA_DECRYPT := true
@@ -192,6 +210,10 @@ TW_FRAMERATE := 60
 #RECOVERY_TOUCHSCREEN_FLIP_X := true
 #RECOVERY_TOUCHSCREEN_FLIP_Y := true
 RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_MEGA_3
+TARGET_RECOVERY_DEVICE_MODULES := libinit_MEGA_3
 
 # Input & Touch
 #TW_INPUT_X_AS_Y := true
