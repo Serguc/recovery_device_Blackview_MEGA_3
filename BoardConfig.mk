@@ -25,8 +25,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Отключаем строгую проверку systemserverclasspath и bootclasspath для минимального манифеста
 BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
-BUILD_BROKEN_PLUGIN_VALIDATION := soong-libaosprecovery_defaults soong-libguitwrp_defaults soong-libminuitwrp_defaults soong-vold_defaults
-DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 
 # Build Hack
 BUILD_BROKEN_DUP_RULES := true
