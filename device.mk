@@ -42,11 +42,6 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0-impl-mock
 
-# create pl dev
-PRODUCT_PACKAGES += \
-    create_pl_dev \
-    create_pl_dev.recovery
-
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
