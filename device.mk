@@ -80,12 +80,6 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 PRODUCT_PACKAGES += snapuserd
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/snapuserd
 
-# Если нужно добавить бинарники, которые должны быть доступны ДО монтирования /system
-PRODUCT_PACKAGES += \
-    linker64.vendor_ramdisk \
-    libc.so.vendor_ramdisk \
-    snapuserd.vendor_ramdisk
-
 # Vendor ramdisk
 PRODUCT_COPY_FILES += \
      device/Blackview/MEGA_3/fstab.mt6789:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6789 \
