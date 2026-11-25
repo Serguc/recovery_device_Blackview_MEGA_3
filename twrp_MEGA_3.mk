@@ -39,7 +39,7 @@ PRODUCT_BRAND := Blackview
 PRODUCT_MODEL := MEGA 3
 PRODUCT_MANUFACTURER := Blackview
 
- Hide Reflash TWRP & FUSE passthrough
+#Hide Reflash TWRP & FUSE passthrough
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.twrp.vendor_boot=true
 
