@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Configure launch_with_vendor_ramdisk.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
-DEVICE_PATH := device/Blackview/MEGA_3
+LOCAL_PATH := device/Blackview/MEGA_3
 
 # Dynamic
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
