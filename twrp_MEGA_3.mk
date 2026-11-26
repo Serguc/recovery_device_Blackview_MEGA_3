@@ -1,4 +1,4 @@
-#
+то#
 # Copyright 2024 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -42,10 +42,3 @@ PRODUCT_MANUFACTURER := Blackview
 #Hide Reflash TWRP & FUSE passthrough
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.twrp.vendor_boot=true
-
-#PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE= MEGA_3 \
-    PRODUCT_NAME= MEGA_3_NEU \
-    PRIVATE_BUILD_DESC= "MEGA_3_NEU/MEGA_3:15/AP3A.240905.015.A2/20250805:user/release-keys"
-
-#BUILD_FINGERPRINT := Blackview/MEGA_3_NEU/MEGA_3:15/AP3A.240905.015.A2/20250805:user/release-keys
